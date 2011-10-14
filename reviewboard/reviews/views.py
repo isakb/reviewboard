@@ -1173,7 +1173,9 @@ def user_infobox(request, username,
 
     show_profile = user.is_profile_visible(request.user)
 
-    etag = ':'.join([user.first_name, user.last_name, user.email,
+    etag = ':'.join([user.first_name.encode('us-ascii', 'replace'),
+                     user.last_name.encode('us-ascii', 'replace'),
+                     user.email,
                      str(user.last_login), str(settings.AJAX_SERIAL),
                      str(show_profile)])
 
