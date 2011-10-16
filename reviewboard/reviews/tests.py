@@ -544,6 +544,9 @@ class ViewTests(TestCase):
 
         self.client.logout()
 
+    def testUserInfobox(self):
+        """Testing user infobox view (with non-ascii characters in name)"""
+        response = self.client.get('/users/per/infobox/')
 
 class DraftTests(TestCase):
     fixtures = ['test_users', 'test_reviewrequests', 'test_scmtools']
